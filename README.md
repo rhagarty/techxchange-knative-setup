@@ -7,7 +7,11 @@ It can also serve as a good reference for students wishing to understand the Kna
 ### Clone the application from GitHub
 
 ```bash
-cd /home/ibmuser
+cd /home/techzone
+mkdir Knative-Setup
+cd Knative-Setup
+```
+```bash
 git clone https://github.com/rhagarty/techxchange-knative-setup.git
 cd techxchange-knative-setup
 ```

@@ -1,10 +1,20 @@
 # Instructions for setting up Knative on the OCP cluster
 
-These instructions should be run by the instructor for properly setting up Knative on OCP so that all students will able to run InstantOn applications on that shared platform.
+These instructions should only be completed if:
 
-It can also serve as a good reference for students wishing to understand the Knative setup process.
+1. You are the workshop instructor and you need to set up Knative on OCP so that all students will able to run InstantOn applications on that shared platform.
+
+2. You are attempting to complete the lab on your own outside of a workshop environment.
+   
+It can also serve as a good reference for workshop attendees wishing to get details on what is involved in the Knative setup process.
 
 ### Clone the application from GitHub
+
+Login as root using the password provided in the TechZone VM reservation:
+
+```bash
+su --login root
+```
 
 ```bash
 cd /home/ibmuser
@@ -14,7 +24,7 @@ cd techxchange-knative-setup
 
 ### Login to the OpenShift console
 
-Click on the OCP reservation to find the link to the OpenShift console UI, along with the username and password to access the console.
+Click on the TechZone OCP reservation to find the link to the OpenShift console UI, along with the username and password to access the console.
 
 ![ocp-access](images/ocp-access.png)
 
@@ -32,7 +42,13 @@ Paste the command into your terminal window. You should receive a confirmation m
 
 ### Install the OpenShift serverless operator
 
-Type the following commands install the serverless operator.
+Switch to the "default" namespace:
+
+```bash
+oc project default
+```
+
+Type the following commands to install the serverless operator.
 
 ```bash
 oc apply -f serverless-subscription.yaml
@@ -103,4 +119,10 @@ spec:
     autoscaler:
       scale-to-zero-grace-period: "30s"
       scale-to-zero-pod-retention-period: "0s"
+```
+
+### In order to build InstantOn images, enable sandbox containers to use netlink system calls. 
+
+```bash
+setsebool virt_sandbox_use_netlink 1
 ```

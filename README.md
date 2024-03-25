@@ -17,7 +17,7 @@ su --login root
 ```
 
 ```bash
-cd /home/ibmuser
+cd /home/techzone
 git clone https://github.com/rhagarty/techxchange-knative-setup.git
 cd techxchange-knative-setup
 ```

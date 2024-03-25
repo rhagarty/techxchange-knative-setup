@@ -13,7 +13,6 @@ It can also serve as a good reference for workshop attendees wishing to get deta
 1. [Initial lab setup](#1-initial-lab-setup)
 1. [Enhance the OpenShift Cloud Platform (OCP) environment](#2-enhance-the-openshift-cloud-platform-ocp-environment)
 1. [Install and configure the Knative service](#3-install-and-configure-the-knative-service)
-1. [Set parameter to enable InstantOn capabilities](#4-set-parameter-to-enable-instanton-capabilities)
 
 ## 1. Initial lab setup
 
@@ -97,6 +96,14 @@ The Cert Manager adds certifications and certification issuers as resource types
 kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.12.3/cert-manager.yaml
 ```
 
+### Set parameter to enable InstantOn capabilities
+
+In order to build InstantOn images, enable sandbox containers to use netlink system calls. 
+
+```bash
+setsebool virt_sandbox_use_netlink 1
+```
+
 ## 3. Install and configure the Knative service
 
 Knative provides the serverless, or scale-to-zero feature of Kubernetes.
@@ -147,12 +154,4 @@ spec:
     autoscaler:
       scale-to-zero-grace-period: "30s"
       scale-to-zero-pod-retention-period: "0s"
-```
-
-## 4. Set parameter to enable InstantOn capabilities
-
-In order to build InstantOn images, enable sandbox containers to use netlink system calls. 
-
-```bash
-setsebool virt_sandbox_use_netlink 1
 ```

@@ -112,7 +112,7 @@ Knative provides the serverless, or scale-to-zero feature of Kubernetes.
 oc get knativeserving.operator.knative.dev/knative-serving -n knative-serving --template='{{range .status.conditions}}{{printf "%s=%s\n" .type .status}}{{end}}'
 ```
 
-Your output should match the following:
+Your output should match the following: 
 
 ![ocp-knative](images/ocp-knative.png)
 

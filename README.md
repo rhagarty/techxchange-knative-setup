@@ -114,8 +114,6 @@ oc get knativeserving.operator.knative.dev/knative-serving -n knative-serving --
 
 Your output should match the following:
 
-test
-
 ![ocp-knative](images/ocp-knative.png)
 
 ### Edit the Knative permissions to allow to the ability to add Capabilities

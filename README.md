@@ -12,7 +12,7 @@ It can also serve as a good reference for workshop attendees wishing to get deta
 
 1. [Initial lab setup](#1-initial-lab-setup)
 1. [Enhance the OpenShift Cloud Platform (OCP) environment](#2-enhance-the-openshift-cloud-platform-ocp-environment)
-1. [Install and configure the Knative service](#3-install-and-configure-the-knative-service)
+2. [Configure the Knative service](#3-configure-the-knative-service)
 
 ## 1. Initial lab setup
 
@@ -72,10 +72,14 @@ Switch to the "default" namespace:
 oc project default
 ```
 
-Type the following commands to install the serverless operator.
+Type the following commands to install the serverless operator and Knative service.
 
 ```bash
 oc apply -f serverless-subscription.yaml
+```
+
+```bash
+oc apply -f serving.yaml
 ```
 
 ### Verify the OpenShift serverless operator is installed and ready
@@ -104,15 +108,9 @@ In order to build InstantOn images, enable sandbox containers to use netlink sys
 setsebool virt_sandbox_use_netlink 1
 ```
 
-## 3. Install and configure the Knative service
+## 3. Configure the Knative service
 
 Knative provides the serverless, or scale-to-zero feature of Kubernetes.
-
-### Install the Knative service
-
-```bash
-oc apply -f serving.yaml
-```
 
 ### Verify the Knative service is ready
 

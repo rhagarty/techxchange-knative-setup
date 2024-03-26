@@ -100,14 +100,6 @@ The Cert Manager adds certifications and certification issuers as resource types
 kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.12.3/cert-manager.yaml
 ```
 
-### Set parameter to enable InstantOn capabilities
-
-In order to build InstantOn images, enable sandbox containers to use netlink system calls. 
-
-```bash
-setsebool virt_sandbox_use_netlink 1
-```
-
 ## 3. Configure the Knative service
 
 Knative provides the serverless, or scale-to-zero feature of Kubernetes.
